@@ -1,0 +1,23 @@
+<link rel="stylesheet" href="./views/notice_data/notice_data.css">
+  <div class="topspace container">
+
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        <p class="ion ion-calendar"> {{notice.date}}</p>
+                        <p class="ion pull-right ion-ios-information-outline"> {{notice.attention}}</p><br>
+                         <strong>{{notice.title}}</strong>
+                      </div>
+                      <div class="panel-body">
+                          <div id="loading" class="loader"></div>
+                          <div  ng-bind-html="notice_data"></div>
+                                             
+                        </div>
+
+                      </div>
+                      <div class="panel-footer">
+                        <p class="ion ion-person"> {{notice.posted_by}}</p>
+
+                      </div>
+                    </div>
+
+    </div>

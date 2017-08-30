@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="/views/studentnoticeboard/studentnoticeboard.css">
+
+<div class="container topspace">
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="#!/hibi">Hibiscus Notice-board</a></li>
+    <li role="presentation"  ><a href="#!/attendance">Attendence</a></li>
+    <li role="presentation" ><a href="#!/grades">Grades</a></li>
+      <li role="presentation" class="active"><a href="#!/student_notice_board">Student Notice-Board</a></li>
+  </ul>
+
+  <div style="height:10px">
+
+  </div>
+
+  <div class="">
+      {{studentnotice}}
+  </div>
+  <div id="loading" class="loader"></div>
+
+  <button class=" bottom mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" ng-show="authentication" ng-click="check_auth()">
+  <i class="material-icons">add</i></button>
+  <div class="" ng-show = "toshow">
+    <input type="text" name="posted_by" value="" placeholder="Posted by" ng-model="postdata.posted_by">
+    <input type="text" name="mssg" value="" placeholder="mssg" ng-model="postdata.mssg">
+    <button type="button" name="button" ng-click="show(postdata)">submit</button>
+
+  </div>
+
+</div>
+
+</div>

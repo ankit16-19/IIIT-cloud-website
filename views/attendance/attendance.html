@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/views/attendance/attendance.css">
+
+<div class="container topspace">
+  <ul class="nav nav-tabs">
+    <li role="presentation"><a href="#!/hibi">Hibiscus Notice-board</a></li>
+    <li role="presentation"  class="active"><a href="#!/attendance">Attendence</a></li>
+    <li role="presentation"><a href="#!/grades">Grades</a></li>
+      <li role="presentation"><a href="#!/student_notice_board">Student Notice-Board</a></li>
+  </ul>
+
+  <div style="height:10px">
+
+  </div>
+<div id="loading" class="loader"></div>
+
+        <div data-ng-repeat="i in mycourses" >
+
+
+              <div class="">
+              <h4><a href="" ng-click="notice_data(i)" class="">{{i.sub}}</a></h4>
+              <p class=" "> Present Absent Leave Total</p>
+              <p class="" > {{i.attend}}</p>
+              <p class="ion ion-compose ">  {{i.name}}</p>
+
+             <hr>
+               </div>
+</div>
+
+</div>

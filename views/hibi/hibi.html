@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="/views//hibi/hibi.css">
+
+<div class="container topspace">
+  <ul class="nav nav-tabs">
+    <li role="presentation" class="active"><a href="#">Hibiscus Notice-board</a></li>
+    <li role="presentation"><a href="#!/attendance">Attendence</a></li>
+    <li role="presentation"><a href="#!/grades">Grades</a></li>
+    <li role="presentation"><a href="#!/student_notice_board">Student Notice-Board</a></li>
+  </ul>
+
+  <div style="height:10px">
+
+  </div>
+<div id="loading" class="loader"></div>
+
+
+        <div data-ng-repeat="i in notice" >
+
+
+              <div class="">
+                <p class="ion ion-calendar"> {{i.date}}</p>
+                <p class="ion pull-right ion-ios-information-outline"> {{i.attention}}</p>
+              </div>
+
+              <h4><a href="" ng-click="notice_data(i)">{{i.title}}</a></h4>
+             <p class="ion ion-compose light">  {{i.posted_by}}</p>
+             <hr>
+
+
+
+</div>
+
+</div>
