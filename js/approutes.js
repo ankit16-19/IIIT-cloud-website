@@ -37,6 +37,12 @@ angular
 						controller:'studentnoticeboardcntrl'
 
 				})
+				.state('mycourses', {
+						url: '/mycourses',
+						templateUrl: './views/courseware/courseware.html',
+						controller:'coursewarecntrl'
+
+				})
 				.state('404', {
 						url: '/404',
 						templateUrl: './views/404/404.html'

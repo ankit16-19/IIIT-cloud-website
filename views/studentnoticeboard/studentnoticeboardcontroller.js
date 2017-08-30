@@ -4,7 +4,7 @@ angular
     $scope.toshow = false
       firebase.database().ref('/Auth/' +  $localStorage.uid).once('value').then(function(snapshot) {
         $scope.authentication  = snapshot.val();
-        $scope.$apply();
+
       });
 
       firebase.database().ref('/Studentnotice/').on('value',function(snapshot) {
@@ -18,7 +18,7 @@ angular
       }
 
 
-    $scope.show = function(data){
+    $scope.post = function(data){
       var writingposition = ""
       firebase.database().ref('/Studentnotice/').once('value').then(function(snapshot) {
       writingposition = snapshot.val().length;

@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="./views/notice_data/notice_data.css">
+  <div class="topspace container">
+    <ul class="nav nav-tabs">
+      <li role="presentation" ><a href="#!/hibi">Hibiscus Notice-board</a></li>
+      <li role="presentation"><a href="#!/student_notice_board">Student Notice-Board</a></li>
+      <li role="presentation" class="active" ><a href="#!/mycourses">CourseWare</a></li>
+      <li role="presentation"><a href="#!/attendance">Attendence</a></li>
+      <li role="presentation"><a href="#!/grades">Grades</a></li>
+
+    </ul>
+<div id="loading" class="loader"></div>
+    <div data-ng-repeat="i in courses" >
+
+
+          <div class="">
+            <h4 class="ion ion-compose"><strong> {{i.name}}</strong></h4><br>
+            <p class="ion">ID: {{i.id}}</p>
+            <p class="ion pull-right">Credits: {{i.credits}}</p><br>
+
+          </div>
+
+          <p href="" ng-click="notice_data(i)">{{i.professor}}</p>
+
+         <hr>
+    </div>
