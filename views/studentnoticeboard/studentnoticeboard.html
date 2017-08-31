@@ -7,27 +7,84 @@
     <li role="presentation" ><a href="#!/mycourses">CourseWare</a></li>
     <li role="presentation"  ><a href="#!/attendance">Attendence</a></li>
     <li role="presentation" ><a href="#!/grades">Grades</a></li>
-
   </ul>
 
-  <div style="height:10px">
-
-  </div>
-
-  <div class="">
-      {{studentnotice}}
-  </div>
+  <div style="height:10px"></div>
   <div id="loading" class="loader"></div>
 
-  <button class=" bottom mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" ng-show="authentication" ng-click="check_auth()">
-  <i class="material-icons">add</i></button>
-  <div class="" ng-show = "toshow">
-    <input type="text" name="posted_by" value="" placeholder="Posted by" ng-model="postdata.posted_by">
-    <input type="text" name="mssg" value="" placeholder="mssg" ng-model="postdata.mssg">
-    <button type="button" name="button" ng-click="post(postdata)">submit</button>
+  <div class="container jaduu animate " ng-show="jadu" style="background-color:#eee;border-radius:5px;">
+    <div class="" style="width:80%;margin-left:10%">
+      <div class="" ng-bind-html="noticedata">
 
+      </div>
+    </div>
   </div>
 
+  <button onclick="document.getElementById('id01').style.display='block'" class=" bottom mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" ng-show="authentication" ng-click="check_auth()">
+  <i class="material-icons">add</i></button>
+
+  <div ng-repeat="i in studentnotices |  orderBy:'':true" >
+
+
+        <div class="">
+          <p class="ion ion-calendar"> {{i.date}}</p>
+          <p class="ion pull-right ion-ios-information-outline"> {{i.attention}}</p>
+        </div>
+
+        <h4><a href="" ng-click="studentnoticedata(i)">{{i.title}}</a></h4>
+       <p class="ion ion-compose">  {{i.posted_by}}</p>
+       <hr>
+
+
+
 </div>
+
+</div>
+
+
+
+
+</div>
+
+
+
+
+<div id="id01" class="modal">
+
+  <form class="modal-content animate" >
+    <div class="imgcontainer">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10">
+
+          <label><b>Date</b></label>
+          <input type="text" placeholder="Date"  required ng-bind="post.date">
+
+          <label><b>Title</b></label>
+          <input type="text" placeholder="Title"  required ng-bind="post.title">
+
+          <label><b>Description</b></label>
+          <textarea  rows="8"  placeholder="Description" ng-bind="post.description" style="background-color:#eee;width:100%"></textarea>
+
+          <label><b>Attention</b></label>
+          <input type="text" placeholder="Attention"  required ng-bind="post.attention">
+
+          <label><b>Posted By</b></label>
+          <input type="text" placeholder="Posted By"  required ng-bind="post.posted_by">
+
+          <button type="submit" ng-click=send(post)>POST</button>
+
+          <div style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          </div>
+        </form>
+        </div>
+      </div>
+    </div>
+
 
 </div>

@@ -20,7 +20,7 @@
 							<div class="col-lg-12 col-xs-12">
 								<form id="login-form" action="" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="" ng-model="data.username">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="ID" value="" ng-model="data.username">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="data.password">
@@ -33,20 +33,12 @@
 											</div>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-lg-12 col-xs-12">
-												<div class="text-center">
-													<a href="" tabindex="5" class="forgot-password" ng-click=reset()>Forgot Password?</a>
-												</div>
-											</div>
-										</div>
-									</div>
+
 								</form>
 								<form id="register-form"  role="form" style="display: none;">
                   <p style="text-align:center"><strong>Register with hibiscus </strong></p>
 									<div class="form-group">
-										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" ng-model="register.uid">
+										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Hibiscus ID" value="" ng-model="register.uid">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model='register.pwd' >
