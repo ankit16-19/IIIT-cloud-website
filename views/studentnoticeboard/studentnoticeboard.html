@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="/views/studentnoticeboard/studentnoticeboard.css">
 
-<div class="container topspace">
+
+<div class="container" style="margin-top: 80px;">
   <ul class="nav nav-tabs">
     <li role="presentation"><a href="#!/hibi">Hibiscus Notice-board</a></li>
       <li role="presentation" class="active"><a href="#!/student_notice_board">Student Notice-Board</a></li>
@@ -12,79 +13,92 @@
   <div style="height:10px"></div>
   <div id="loading" class="loader"></div>
 
-  <div class="container jaduu animate " ng-show="jadu" style="background-color:#eee;border-radius:5px;">
-    <div class="" style="width:80%;margin-left:10%">
-      <div class="" ng-bind-html="noticedata">
-
-      </div>
-    </div>
-  </div>
-
-  <button onclick="document.getElementById('id01').style.display='block'" class=" bottom mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" ng-show="authentication" ng-click="check_auth()">
+  <button class=" bottom mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" ng-show="authentication" data-toggle="modal" data-target="#myModal">
   <i class="material-icons">add</i></button>
 
   <div ng-repeat="i in studentnotices |  orderBy:'':true" >
-
-
         <div class="">
           <p class="ion ion-calendar"> {{i.date}}</p>
           <p class="ion pull-right ion-ios-information-outline"> {{i.attention}}</p>
         </div>
 
-        <h4><a href="" ng-click="studentnoticedata(i)">{{i.title}}</a></h4>
+        <h4><a href=""  data-toggle="modal" data-target="#Modal" ng-click="studentnoticedata(i)">{{i.title}}</a></h4>
        <p class="ion ion-compose">  {{i.posted_by}}</p>
        <hr>
-
-
-
 </div>
 
 </div>
+<!-- data modal -->
+<div id="Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
 
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Notice</h4>
+      </div>
+      <div class="modal-body">
+        {{noticedata}}
 
-
-
-</div>
-
-
-
-
-<div id="id01" class="modal">
-
-  <form class="modal-content animate" >
-    <div class="imgcontainer">
-      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-
-    </div>
-
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10">
-
-          <label><b>Date</b></label>
-          <input type="text" placeholder="Date"  required ng-bind="post.date">
-
-          <label><b>Title</b></label>
-          <input type="text" placeholder="Title"  required ng-bind="post.title">
-
-          <label><b>Description</b></label>
-          <textarea  rows="8"  placeholder="Description" ng-bind="post.description" style="background-color:#eee;width:100%"></textarea>
-
-          <label><b>Attention</b></label>
-          <input type="text" placeholder="Attention"  required ng-bind="post.attention">
-
-          <label><b>Posted By</b></label>
-          <input type="text" placeholder="Posted By"  required ng-bind="post.posted_by">
-
-          <button type="submit" ng-click=send(post)>POST</button>
-
-          <div style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-          </div>
-        </form>
-        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
 
+  </div>
+</div>
 
+
+
+<!--post Modal -->
+<div id="Modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Modal Header</h4>
+      </div>
+      <div class="modal-body">
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- post Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Notice</h4>
+      </div>
+      <div class="modal-body">
+        <label><b>Date</b></label>
+       <input type="text" class="form-control" placeholder="Date" name="date"  ng-model="post.date" required>
+
+       <label><b>Title</b></label>
+       <input type="text" class="form-control" placeholder="Title" name="title" ng-model="post.title" required>
+       <label><b>Description</b></label>
+       <textarea class="form-control" rows="5" placeholder="Description" ng-model="post.description" required></textarea>
+       <label><b>Attention</b></label>
+       <input type="text" class="form-control" placeholder="Attention" name="attention" ng-model="post.attention" required>
+       <label><b>posted_by</b></label>
+       <input type="text" class="form-control" placeholder="Posted By" name="posted_by" ng-model="post.posted_by" required>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" ng-click="p(post)" data-dismiss="modal">POST</button>
+      </div>
+    </div>
+  </div>
 </div>

@@ -43,6 +43,55 @@ angular
 
           });
 
+          $scope.notices = function(data){
+            $scope.subnotices =""
+            $scope.load = "loading.."
+            var da  = {
+              "uid" : $scope.data.uid,
+              "pwd" : $scope.data.pwd,
+              "id":data.id
+            }
+            console.log(da);
+            rq.post('/api/hibi/course_notice',da)
+            .then(function successCallback(response){
+
+              $scope.load = "";
+              $scope.subnotices =  response.data.Notices;
+
+              $('#loading').removeClass('loader');
+             // writing notice data to the firebase database
+
+             // if success
+             },function errorCallback(response){
+               // if error
+             })
+
+          }
+
+          $scope.noticedata = function(data){
+            $scope.subnoticedata = ""
+            $scope.load = "loading.."
+            var da  = {
+              "uid" : $scope.data.uid,
+              "pwd" : $scope.data.pwd,
+              "link":data.link_id
+            }
+            rq.post('/api/hibi/course_notice_data',da)
+            .then(function successCallback(response){
+              console.log(response.data.Notices);
+              $scope.load = ""
+              $scope.subnoticedata =  response.data.Notices;
+
+              $('#loading').removeClass('loader');
+             // writing notice data to the firebase database
+
+             // if success
+             },function errorCallback(response){
+               // if error
+             })
+
+          }
+
         });
 
 
