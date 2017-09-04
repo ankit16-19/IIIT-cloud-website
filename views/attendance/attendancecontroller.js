@@ -12,11 +12,11 @@ angular
         'uid':snapshot.child("sid").val(),
         'pwd':snapshot.child("pwd").val()
       }
+      rq.dcrypt($scope.data.pwd).then(function successCallback(response){
+      $scope.data.pwd = response.data
       // making resquest to get all the courses
       rq.post('/api/hibi/attendence',$scope.data)
       .then(function successCallback(response){
-      // $('#loading').removeClass('loader');
-      // $scope.mycourses = response.data.Notices
       console.log("sever response");
       i = 0;
       while(i < response.data.Notices.length){
@@ -28,9 +28,9 @@ angular
         });
         i++;
       }
-
         },function errorCallback(response){
         // console.log("errro");
+      })
       })
 
       })

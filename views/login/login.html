@@ -1,16 +1,12 @@
 <link rel="stylesheet" href="/views/login/login.css">
-{{test1}}
 <div class="container topspace">
     	<div class="row" style="margin:0 !important;padding:0 !important;">
 			<div class="col-xs-12 col-sm-6 col-md-6 col-md-offset-1">
 				<div class="panel panel-login">
 					<div class="panel-heading">
 						<div class="row">
-							<div class="col-xs-6">
+							<div class="col-xs-12">
 								<a href="" class="active" id="login-form-link">Login</a>
-							</div>
-							<div class="col-xs-6">
-								<a href="" id="register-form-link">Register</a>
 							</div>
 						</div>
 						<hr>
@@ -20,10 +16,10 @@
 							<div class="col-lg-12 col-xs-12">
 								<form id="login-form" action="" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="ID" value="" ng-model="data.username">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="ID" value="" ng-model="data.uid">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="data.password">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="data.pwd">
 									</div>
 
 									<div class="form-group">
@@ -35,22 +31,6 @@
 									</div>
 
 								</form>
-								<form id="register-form"  role="form" style="display: none;">
-                  <p style="text-align:center"><strong>Register with hibiscus </strong></p>
-									<div class="form-group">
-										<input type="text" name="email" id="email" tabindex="1" class="form-control" placeholder="Hibiscus ID" value="" ng-model="register.uid">
-									</div>
-									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model='register.pwd' >
-									</div>
-									<div class="form-group">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now" ng-click=signup(register)>
-											</div>
-										</div>
-									</div>
-								</form>
 							</div>
 						</div>
 					</div>
@@ -58,6 +38,6 @@
 			</div>
 		</div>
 	</div>
-<div id="loading" class=""></div>
 
+<div id="loading" class=""></div>
   <button type="button" name="button" id="logout"class="hide" ng-click=logout()>logout</button>

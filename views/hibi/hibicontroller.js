@@ -6,13 +6,14 @@ angular
       $scope.notice = snapshot.val()
       $('#loading').removeClass('loader');
     });
-
+      // $localStorage.data = undefined
     firebase.database().ref('/Students/' + $localStorage.uid + '/hibiscus').once('value').then(function(snapshot) {
       $scope.data = {
         'uid':snapshot.child("sid").val(),
         'pwd':snapshot.child("pwd").val()
       }
-
+      rq.dcrypt($scope.data.pwd).then(function successCallback(response){
+      $scope.data.pwd = response.data
       rq.post('/api/hibi/notice',$scope.data)
       .then(function successCallback(response){
       console.log("server");
@@ -43,6 +44,7 @@ angular
         // console.log("errro");
       })
 
+            })
 
       $scope.notice_data = function(data){
         $localStorage.fundata = data;

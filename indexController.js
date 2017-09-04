@@ -1,5 +1,5 @@
 angular
-	.module("Main", ['routes','logincontroller','hibicontroller','services','notice_datacontroller','hibilogincontroller','attendancecontroller','gradescontroller','studentnoticeboardcontroller','coursewarecontroller',])
+	.module("Main", ['routes','logincontroller','hibicontroller','services','notice_datacontroller','attendancecontroller','gradescontroller','studentnoticeboardcontroller','coursewarecontroller',])
 	.controller("indexcntrl", function($scope,$location,rq,$localStorage) {
     $scope.test = "If you can read this mean angular is working hooooreeee!!!";
 

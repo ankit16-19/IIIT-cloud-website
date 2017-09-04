@@ -7,6 +7,8 @@ angular
             'uid':snapshot.child("sid").val(),
             'pwd':snapshot.child("pwd").val()
           }
+          rq.dcrypt($scope.data.pwd).then(function successCallback(response){
+          $scope.data.pwd = response.data
           firebase.database().ref('/Students/' + $localStorage.uid + '/mycourses/').on('value',function(snapshot) {
            if(snapshot.val() != null) // if there is a response
            {
@@ -39,8 +41,9 @@ angular
              },function errorCallback(response){
                // if error
              })
-           }
 
+           }
+          })
           });
 
           $scope.notices = function(data){
@@ -51,7 +54,7 @@ angular
               "pwd" : $scope.data.pwd,
               "id":data.id
             }
-            console.log(da);
+        
             rq.post('/api/hibi/course_notice',da)
             .then(function successCallback(response){
 
