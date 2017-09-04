@@ -1,6 +1,39 @@
 angular
   .module('hibicontroller',["ngStorage"])
   .controller('hibicntrl',function($scope,rq,$window,$localStorage){
+    const messaging = firebase.messaging();
+    messaging.requestPermission()
+    .then(function() {
+      console.log('Notification permission granted.');
+      return messaging.getToken();
+    })
+    .then(function(token){
+      topic = 'IIITstudents'
+      fetch('https://iid.googleapis.com/iid/v1/'+token+'/rel/topics/'+topic, {
+        method: 'POST',
+        headers: new Headers({
+          'Authorization': 'key=AAAAl7M60AQ:APA91bFBlQRIQmjXAOw0S5r6Yy1kzHHgXHdulMU_1oU-xQ0VKDnCTvL9DmLgwFyjPJZOgMuF-mOXZPzjNixrv7gC0m7vUC7kjuFaGCRat0tsvl7srBGKn7y2T7dv2JFNcm6bkxlKOtF3'
+        })
+      }).then(response => {
+        if (response.status < 200 || response.status >= 400) {
+          throw 'Error subscribing to topic: '+response.status + ' - ' + response.text();
+        }
+        console.log('Subscribed to "'+topic+'"');
+      }).catch(error => {
+        console.error(error);
+      })
+    })
+    .catch(function(err) {
+      console.log('Unable to get permission to notify.', err);
+    });
+
+
+    messaging.onMessage(function(payload) {
+      console.log("Message received. ", payload);
+
+    });
+
+
     // getting Notices from firebase
     firebase.database().ref('/Notice/').on('value',function(snapshot) {
       $scope.notice = snapshot.val()

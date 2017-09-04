@@ -2,7 +2,6 @@ angular
   .module('logincontroller',['ngStorage'])
   .controller('logincntrl',function($scope,$location,$localStorage,rq){
 
-
       $scope.signin = function(data) {
           $('#loading').addClass('loader');
           console.log(data);
